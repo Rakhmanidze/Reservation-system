@@ -1,0 +1,1277 @@
+{
+	"info": {
+		"_postman_id": "cf503d35-fe1f-4c20-b235-85b9a41f98c6",
+		"name": "reservation_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40149116",
+		"_collection_link": "https://ear111.postman.co/workspace/ear-Workspace~76fc346d-29a9-4f1f-81c5-acf296e43250/collection/40149116-cf503d35-fe1f-4c20-b235-85b9a41f98c6?action=share&source=collection_link&creator=40149116"
+	},
+	"item": [
+		{
+			"name": "scenarios",
+			"item": [
+				{
+					"name": "registration",
+					"item": [
+						{
+							"name": "admin",
+							"item": [
+								{
+									"name": "first admin",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"admin1@cz\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"password\" : \"123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/admins",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"admins"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get all admins",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin1@cz",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/admins",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"admins"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "get all users",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "admin1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/admins/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"admins",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "first user",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "admin1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"user1@cz\",\r\n    \"firstName\": \"user\",\r\n    \"lastName\": \"Doe\",\r\n    \"roomNumber\" : 10,\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"password\" : \"123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/admins/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"admins",
+												"users"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "facilities",
+					"item": [
+						{
+							"name": "all facilities",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/facilities",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"facilities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new facility",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"description\": \"new3\",\r\n        \"name\": \"new3\",\r\n        \"capacity\": 2,\r\n        \"requiredMembershipType\": \"BASIC\",\r\n        \"isAvailable\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/facilities",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"facilities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "facility",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/facilities/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"facilities",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "payment",
+					"item": [
+						{
+							"name": "for first user membership",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 500,\r\n    \"membershipIds\": [10]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get his membership",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/users/me/membership",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"users",
+										"me",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "advanced membership",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"amount\": 300,\r\n    \"membershipIds\": [5]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "reservation",
+					"item": [
+						{
+							"name": "conflicts",
+							"item": [
+								{
+									"name": "not free facility",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "user1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"start\": \"2025-01-03T11:00:00\",\r\n    \"end\": \"2025-01-03T12:30:00\",  \r\n    \"capacity\" : 2, \r\n    \"facilityId\" : 8\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/reservations",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "too big capacity",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "user1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"start\": \"2025-01-03T13:00:00\",\r\n    \"end\": \"2025-01-03T14:30:00\",  \r\n    \"capacity\" : 200, \r\n    \"facilityId\" : 8\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/reservations",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "7 days advance allowed",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "user1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"start\": \"2026-01-03T13:00:00\",\r\n    \"end\": \"2026-01-03T14:30:00\",  \r\n    \"capacity\" : 200, \r\n    \"facilityId\" : 8\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/reservations",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "no membership",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "admin1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"start\": \"2025-01-03T16:00:00\",\r\n    \"end\": \"2025-01-03T17:00:00\",  \r\n    \"capacity\" : 2, \r\n    \"facilityId\" : 8,\r\n    \"userId\" : 21\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/reservations",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"reservations"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "all reservations (only admin can)",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create as user",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"start\": \"2025-01-03T10:00:00\",\r\n    \"end\": \"2025-01-03T10:30:00\",  \r\n    \"capacity\" : 1, \r\n    \"facilityId\" : 8\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update reservation",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"start\": \"2025-01-03T11:00:00\",\r\n    \"end\": \"2025-01-03T12:30:00\",  \r\n    \"capacity\" : 2, \r\n    \"facilityId\" : 8\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations/14",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations",
+										"14"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reservation",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations/13",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations",
+										"13"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create as admin",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"start\": \"2025-01-03T11:00:00\",\r\n    \"end\": \"2025-01-03T11:30:00\",  \r\n    \"capacity\" : 1, \r\n    \"facilityId\" : 8\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations/21",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations",
+										"21"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user's reservations (as admin))",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/reservations/users/21",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"reservations",
+										"users",
+										"21"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "conflicts",
+							"item": [
+								{
+									"name": "cant get all reservation",
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "username",
+													"value": "user1@cz",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "123",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/clubsystem/api/reservations/all",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"clubsystem",
+												"api",
+												"reservations",
+												"all"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "user's reservations",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/users/me/reservations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"users",
+										"me",
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "his membership",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/users/me/membership",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"users",
+										"me",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "data about user",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/users/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user's phone",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "user1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\" : \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/users/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "user's membership",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/admins/users/21/membership",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"admins",
+										"users",
+										"21",
+										"membership"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user's payments",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/admins/users/21/membership/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"admins",
+										"users",
+										"21",
+										"membership",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update membership",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"end\": \"2027-01-02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/admins/users/21/membership/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"admins",
+										"users",
+										"21",
+										"membership",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "all payments",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "admin1@cz",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/clubsystem/api/payments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"clubsystem",
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
